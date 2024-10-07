@@ -1,7 +1,3 @@
-# Diabetes-Prediction
-This repository contains the code used in my Master's dissertation titled "Using Machine Learning and Deep Learning Methods in Predicting Patients with Diabetes." The project explores various classification algorithms, feature selection techniques, and interpretability methods to predict diabetes.
-# Diabetes Prediction - Dissertation Project
-
 This repository contains the code used in my Master's dissertation titled "**Using Machine Learning and Deep Learning Methods in Predicting Patients with Diabetes**." The project explores various classification algorithms, resampling techniques, unbiased data approaches, and the application of Self-Normalizing Neural Networks (SNN) for diabetes prediction.
 
 ## Project Overview
