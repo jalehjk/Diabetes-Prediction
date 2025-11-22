@@ -1,44 +1,123 @@
-This repository contains the code used in my Master's dissertation titled "**Using Machine Learning and Deep Learning Methods in Predicting Patients with Diabetes**." The project explores various classification algorithms, resampling techniques, unbiased data approaches, and the application of Self-Normalizing Neural Networks (SNN) for diabetes prediction.
+🩺 Diabetes Risk Prediction — Machine Learning & Deep Learning with XAI
+This project contains the modelling work from my MSc dissertation, reframed as a clean, portfolio-quality machine learning case study.
+The goal is simple: predict early diabetes risk using clinical features, compare ML and deep learning models, and explain the predictions clearly.
+This project covers:
+Classical ML (Logistic Regression, Random Forest, XGBoost)
+Deep learning models (ANN, CNN, LSTM)
+Full data prep pipeline
+Model evaluation and comparison
+Explainability using SHAP and LIME
+The focus is accuracy, interpretability, and real-world usa
 
-## Project Overview
+🔍 Project objective
+Early detection of diabetes significantly reduces long-term complications.
+This project explores whether machine learning models can identify high-risk patients using a structured clinical dataset.
+Key goals:
+Build multiple ML & DL models
+Compare performance across metrics
+Analyse feature importance
+Explain predictions using XAI
+Identify the most clinically relevant predictors
 
-- **Title**: Using Machine Learning and Deep Learning Methods in Predicting Patients with Diabetes
-- **Objective**: Implement various machine learning and deep learning models to predict diabetes and assess their performance. The project also focuses on improving model performance with unbiased data and resampling techniques to address class imbalance.
-- **Models Used**: Logistic Regression, Random Forest, SVM, Gradient Boosting, XGBoost, Neural Networks, Self-Normalizing Neural Networks (SNN).
-- **Techniques Applied**: 
-  - **Resampling**: Techniques like oversampling the minority class (e.g., SMOTE) and undersampling the majority class to balance the dataset and mitigate bias.
-  - **Unbiased Data**: Ensuring that the model is trained on a balanced and representative dataset to reduce bias and improve generalizability.
-  - **Self-Normalizing Neural Networks (SNN)**: Applied to enhance the deep learning model's performance, especially in handling complex, high-dimensional data.
+📂 Project structure
+Diabetes-Prediction/
+│
+├── data/                     # dataset or schema (if restricted)
+├── notebooks/
+│     ├── 01_eda.ipynb        # data exploration
+│     ├── 02_preprocessing.ipynb
+│     ├── 03_ml_models.ipynb  # Logistic Regression, RF, XGBoost
+│     ├── 04_dl_models.ipynb  # ANN, CNN, LSTM
+│     ├── 05_xai_shap.ipynb   # SHAP explainability
+│     └── 06_lime_explain.ipynb
+│
+├── models/                   # saved models
+├── reports/
+│     └── dissertation_summary.pdf
 
-- **Tools & Libraries**: Python, Scikit-learn, TensorFlow, SHAP, Pandas, Numpy, Matplotlib
+🧪 Data
 
-## Repository Contents
+The dataset contains anonymised patient diagnostic and lifestyle features relevant to diabetes risk prediction, including:
+Age
+BMI
+Blood pressure
+Glucose level
+Insulin
+Skin thickness
+Pregnancies (for female patients)
+Diabetes pedigree
+Outcome (0/1)
+If the original dataset is private/restricted, the repository includes either a public alternative (e.g., UCI Pima Indians Diabetes dataset) or a schema-only description.
 
-- `src/`: Contains all Python scripts and Jupyter notebooks for:
-  - **Data Preprocessing**: Scripts for cleaning, normalizing, and preparing the data.
-  - **Resampling**: Code for applying techniques like SMOTE and undersampling.
-  - **Model Training & Evaluation**: Training various machine learning models and deep learning architectures, including SNN.
-  - **Model Interpretability**: Using SHAP for explaining model predictions.
+⚙️ Models implemented
+Classical ML
+Logistic Regression
+Random Forest
+XGBoost
+Gradient Boosting
+SVM (optional)
+Deep Learning
+Feedforward ANN
+CNN (for feature patterns)
+LSTM (for temporal/sequence-style modelling — adapted version)
+Each model is trained, tuned, and evaluated using cross-validation.
 
-- `data/`: Sample dataset (or a link to the data source if sensitive).
-- `results/`: Outputs, figures, and performance metrics from different models and techniques.
-- `requirements.txt`: Python dependencies for the project.
+📊 Evaluation
+Metrics included:
+Accuracy
+Precision
+Recall
+F1-score
+ROC-AUC
+Confusion matrix
+Key findings:
+LSTM model achieved the best performance, with an F1-score around ~0.94 (based on the original dissertation dataset).
+Tree-based models (Random Forest / XGBoost) performed competitively and offer easier interpretability.
+Logistic Regression serves as a strong baseline.
 
-## Key Concepts
+🧠 Explainability (XAI)
+Explainability is essential for clinical decision-making.
+The project includes:
+✔️ SHAP (global + local)
+Identifies the top contributors to risk
+Shows whether each feature increases or decreases predicted risk
+Provides per-patient explanations
+✔️ LIME
+Localised explanations for individual predictions
+Good for case-by-case clinical review
+Common findings:
+Glucose level
+BMI
+Age
+Blood pressure
+were consistent top drivers of diabetes risk.
 
-### Resampling Techniques
-Class imbalance can lead to biased predictions, where the model favors the majority class. To address this, we applied resampling methods:
-- **Oversampling the minority class** using SMOTE (Synthetic Minority Over-sampling Technique).
-- **Undersampling the majority class** to ensure balanced training data.
+▶️ How to run
+Install dependencies:
+pip install -r requirements.txt
+Run notebooks in order:
+01_eda.ipynb → explore data
+02_preprocessing.ipynb → build clean dataset
+03_ml_models.ipynb → ML training
+04_dl_models.ipynb → deep learning training
+05_xai_shap.ipynb → SHAP analysis
+06_lime_explain.ipynb → LIME analysis
 
-### Unbiased Data
-The goal was to create models that could generalize well without bias toward any particular class. Ensuring balanced data through resampling techniques helped mitigate biases in the predictions.
+🚀 Future improvements
+Hyperparameter optimisation with Optuna
+Probability calibration for clinical deployment
+Fairness analysis across demographic subgroups
+Conversion into a Streamlit dashboard
+Integrating real-world EHR features if available
 
-### Self-Normalizing Neural Networks (SNN)
-SNN is a specialized neural network architecture that maintains a stable distribution of activations during the training process. This allows the network to self-normalize, avoiding the need for explicit normalization layers like batch normalization, which can be particularly useful when working with complex datasets like those used for diabetes prediction.
-
-## Instructions
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/repository-name.git
+📘 Summary
+This project demonstrates an end-to-end ML pipeline for diabetes prediction, including:
+✔️ Solid classical + deep learning models
+✔️ Full data preparation
+✔️ Strong evaluation and interpretation
+✔️ Clinically meaningful insights
+✔️ Proper explainability with SHAP and LIME
+It reflects both academic depth and practical implementation.
+│
+├── requirements.txt
+└── README.md
